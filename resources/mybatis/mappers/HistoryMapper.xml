@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.skuniv.springmvc.dao.HistoryMapper">
+	<insert id="insertResult" parameterType="String">
+		INSERT INTO food_db.history(`id`, `search_food`, `address`) 
+		VALUES ('${id}','${search_food}','${address}')
+	</insert> 
+	
+	<select id="getHistory" resultType="kr.ac.skuniv.springmvc.dto.History" parameterType="String">
+        SELECT id, search_food, address
+        FROM food_db.history
+        WHERE id = '${id}'
+        ORDER BY number DESC
+        LIMIT 15
+    </select>
+    
+    <delete id="deleteHistory">
+    	DELETE FROM food_db.history
+    </delete>
+    
+    <select id="getChartData" resultType="int" parameterType="String">
+        SELECT COUNT(*)
+        FROM food_db.history
+        WHERE address = '${address}'
+    </select>
+    
+     <select id="getRanking" resultType="String">
+        SELECT search_food
+        FROM food_db.history
+        GROUP BY search_food
+        ORDER BY count(*) DESC
+        LIMIT 10
+    </select>
+    
+</mapper>

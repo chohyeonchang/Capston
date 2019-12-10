@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.skuniv.springmvc.dao.FavoritesMapper">
+	<insert id="insertFavorites" parameterType="String">
+		INSERT INTO food_db.favorites(`id`, `name`, `address`) 
+		VALUES ('${id}','${name}','${address}')
+	</insert> 
+	
+	<select id="getFavorites" resultType="kr.ac.skuniv.springmvc.dto.Favorites" parameterType="String">
+        SELECT name, address
+        FROM food_db.favorites
+        WHERE id = '${id}'
+    </select>
+    
+    <delete id="deleteFavorites" parameterType="String">
+    	DELETE FROM food_db.favorites
+    	WHERE id='${id} AND name = '${name}'
+    </delete>
+    
+    
+
+</mapper>

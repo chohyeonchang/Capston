@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+a:link{
+	text-decoration : none;
+}
+
+a:visited{
+	text-decoration : none;
+}
+
+a:active{
+	text-decoration : none;
+}
+
+a:hover{
+	text-decoration : none;
+}
+
+h1{
+	text-align : center;
+	color : white;
+}
+h2{
+	font-family: 'Sunflower';
+	color: #800000;
+}
+
+h3, h5{
+	display : inline;
+}
+
+table{
+	border: solid gray 2px;
+	border-collapse : collapse;
+	color : black;
+	width : 70%;
+	font-weight : bold;
+	font-family: 'Sunflower';
+	margin : 30px 0px 300px;
+	float : right;
+}
+
+th{
+	background-color : #9f9877;
+	color : Black;	
+}
+
+th, td{
+	border-bottom : 1px solid #aaaaaa;
+	padding : 15px;
+}
+
+td{
+	text-align : center;
+	background-color : #ffffff;
+	color: #000000;
+	
+}
+
+#popup {
+    display: none; /*숨기기*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.30);
+}
+
+#popmenu {
+    position: absolute;
+    left: 80%;
+    top: 10%;
+    width: 300px;
+    height: 560px;
+    text-align: center;
+    background: #ffffff;
+     opacity: 0.8;
+}
+
+.exit {
+    position: absolute;
+    left: 91%;
+    top: 75%;
+    bottom: 10px;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color : orange;
+    border : 3px solid orange;
+    cursor: pointer;
+}
+
+.clear {
+    position: absolute;
+    left: 81%;
+    top: 90%;
+    bottom: 10px;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #007AAE;
+    cursor: pointer;
+}
+
+.selectedRow{
+	background-color : #ff8000;
+	
+}

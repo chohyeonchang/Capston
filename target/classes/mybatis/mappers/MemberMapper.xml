@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.skuniv.springmvc.dao.MemberMapper">
+    <select id="getMember" resultType="kr.ac.skuniv.springmvc.dto.Member" parameterType="String">
+        SELECT id, name, email, password
+        FROM food_db.user
+        WHERE id = "${id}"
+    </select>
+    
+    <select id="getId" resultType="kr.ac.skuniv.springmvc.dto.Member">
+        SELECT id
+        FROM food_db.user
+    </select>
+    
+    <insert id="insertMember" parameterType="String">
+		INSERT INTO food_db.user
+		VALUES ('${id}','${name}','${email}','${password}')
+	</insert>
+	
+	<update id="updateMember" parameterType="String">
+		UPDATE food_db.user
+		SET name = "${name}", email = "${email}", password = "${password}"
+		WHERE id = "${id}" 
+	</update> 
+</mapper>

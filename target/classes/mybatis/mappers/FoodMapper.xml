@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.skuniv.springmvc.dao.FoodMapper">
+    <select id="getResult" resultType="kr.ac.skuniv.springmvc.dto.Food" parameterType="String">
+        SELECT DISTINCT upso_nm, site_addr_rd, snt_uptae_nm, main_edf, upso_site_telno
+        FROM food_db.${location}
+        WHERE main_edf like "%${main_edf}%" OR upso_nm like "%${main_edf}%" OR snt_uptae_nm like "%${main_edf}%"
+        LIMIT 15
+    </select> 
+    
+    <select id="getResultCount" resultType="int" parameterType="String">
+        SELECT COUNT(*)
+        FROM food_db.${location}
+        WHERE snt_uptae_nm = "${category}"
+    </select>
+    
+    <select id="getEtcCount" resultType="int" parameterType="String">
+        SELECT COUNT(*)
+        FROM food_db.${location}
+        WHERE NOT snt_uptae_nm IN ("한식","중국식","일식","경양식")
+    </select>    
+
+</mapper>
